@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa Histórico</title>
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&family=Roboto+Condensed:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo del mapa */
+        #map {
+            height: 700px;
+        }
+
+        /* Fuente de toda la página */
+        body {
+            font-family: 'Roboto Condensed', ;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Contenedor para alinear el título y la insignia */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 6px;
+            background-color: #f4f4f4;
+        }
+
+        /* Estilo de la insignia */
+.header .insignia {
+    width: 50px; /* Ajusta el tamaño de la insignia */
+    height: auto;
+    float: right; /* Esto coloca la imagen al lado izquierdo */
+    margin-right: 20px; /* Espacio entre la insignia y el título */
+}
+
+        /* Estilo del título */
+        .header h1 {
+            text-align: center;
+            margin: 0;
+            font-size: 2em;
+        }
+
+        /* Estilo para la pestaña de objetivos */
+        .objectives-tab {
+            padding: 10px;
+        }
+
+        .objectives-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .objectives-content {
+            margin-top: 10px;
+        }
+
+        .objectives-content h3 {
+            margin: 0 0 10px 0;
+            font-size: 1em;
+        }
+
+        .objectives-content ul {
+            list-style-type: disc;
+            padding-left: 10px;
+        }
+
+        /* Estilo de la línea de tiempo */
+        .timeline {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background-color: #a57c2b;
+            color: white;
+            font-size: 1em;
+        }
+
+        .timeline-event {
+            cursor: pointer;
+        }
+
+        /* Popup de la línea de tiempo */
+        .timeline-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .timeline-popup #close-popup {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor para el título y la insignia -->
+    <div class="header">
+        <!-- Imagen de la insignia, restaurada -->
+        <img class="insignia" src="C:\Users\XinoS\OneDrive\Documentos\Mapa histórico\image.png" alt="Insignia">
+        <h1>Mapa Histórico</h1>
+    </div>
+
+    <div class="objectives-tab">
+        <button class="objectives-btn">Criterios</button>
+        <div class="objectives-content">
+           <ul>
+                <li>I.L.- Analiza las principales causas y hechos que dieron origen a la expansión europea en Nicaragua</li>
+                <li>CP.- Identifica y explica las causas económicas, políticas y culturales que impulsaron la expansión europea en Nicaragua, utilizando fuentes históricas y organizando la información de manera cronológica.</li>
+                <li>CA.- Muestra interés y respeto por las diferentes perspectivas históricas al analizar la expansión europea, valorando el impacto de estos hechos en la cultura e identidad nicaragüense.</li>
+                <li>CC.- Comprende los conceptos clave relacionados con la expansión europea, como colonización, evangelización y explotación de recursos, y su relación con los eventos históricos en Nicaragua.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <!-- Popup para mostrar información -->
+    <div id="info-popup" style="display:none;"></div>
+
+    <!-- Línea de Tiempo de Acontecimientos -->
+    <div class="timeline">
+        <div class="timeline-event" data-year="1502" data-info="Descubrimiento de Nicaragua.">1502</div>
+        <div class="timeline-event" data-year="1522" data-info="Comienza la expedición de Gil González Dávila y Andrés Niño.">1522</div>
+        <div class="timeline-event" data-year="1523" data-info="Encuentro entre Gil González Dávila y el Cacique Nicarao.">1523</div>
+        <div class="timeline-event" data-year="1523" data-info="17 de abril de 1523, dia de la Resistencia índigena nicaragüense, Diriangen lucha contra Gil González de Ávila en la Quebrada del Perro en lo que hoy es Diriamba.">1523</div>
+        <div class="timeline-event" data-year="1524" data-info="Fundación de las primeras ciudades coloniales: Granada y León.">1524</div>
+        <div class="timeline-event" data-year="1821" data-info="Proceso de emancipación de Nicaragua de la corona española.">1821</div>
+        <div class="timeline-event" data-year="1854" data-info="Primera batalla entre liberales y conservadores.">1854</div>
+        <div class="timeline-event" data-year="1856" data-info="Batalla de San Jacinto.">1856</div>
+    </div>
+
+    <!-- Contenedor para el Popup de Información -->
+    <div id="timeline-popup" class="timeline-popup" style="display:none;">
+        <span id="close-popup">&times;</span>
+        <div id="popup-content"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+    /* Estilo de la pestaña de objetivos */
+.objectives-tab {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.objectives-btn {
+    background-color: #4ca8af;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.objectives-content {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+}
+
+.objectives-tab:hover .objectives-content,
+.objectives-btn:focus + .objectives-content {
+    display: block;
+}
+
+/* Estilo de la Línea de Tiempo */
+.timeline {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4c56afaf;
+    color: rgb(15, 6, 6);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.timeline-event {
+    font-size: 20px;
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+    transition: transform 0.10s;
+}
+
+.timeline-event:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo del Popup */
+.timeline-popup {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    z-index: 1001;
+}
+
+.timeline-popup h3 {
+    margin-top: 0;
+}
+
+#close-popup {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+#close-popup:hover {
+    color: #000;
+}
+
+/* Archivo: styles.css */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 2px 5px; /* Reduce el espacio vertical */
+    margin: 0; /* Elimina cualquier margen exterior */
+}
+
+.header h1 {
+    margin: 05; /* Elimina márgenes del título */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.insignia {
+    height: 40px; /* Ajusta el tamaño de la insignia si es necesario */
+    margin-right: 350px; /* Espacio entre la insignia y el título */
+}
+
+
